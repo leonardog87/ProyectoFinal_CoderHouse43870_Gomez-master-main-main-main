@@ -17,9 +17,9 @@
 
 {% block contenido_cambiante %}
     {% if user.is_authenticated %} 
-      de: {{ request.user.username }}
+      mensaje para:
         <br>
-    para{{ user.pk }}
+        <br>
     {% endif %}
     {% if user.is_authenticated %}    
         <form method="POST"> {% csrf_token %}    

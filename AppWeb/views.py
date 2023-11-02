@@ -30,15 +30,13 @@ def userList(request):
     return render(request,'AppWeb/userList.html', {"users":users})
 
 def mensajeUserList(request):
-    userrec=User.objects.get(id=request.user.id)
     mensajesUsers=MensajeUser.objects.filter(user=request.user.id) 
-    mensajesUsers=MensajeUser.objects.filter(user=request.user.id)
-    diccionarioMensajes = {}
+    diccionarioMensajes={}
     for mensaje in mensajesUsers:
         if mensaje.user_transmitter not in diccionarioMensajes:
-           lista_mensajes = []
+           lista_mensajes=[]
            diccionarioMensajes[mensaje.user_transmitter] = lista_mensajes
-    return render(request,'AppWeb/mensajeUserList.html', {"mensajesUsers":mensajesUsers, "userrec":userrec, "diccionarioMensajes":diccionarioMensajes})
+    return render(request,'AppWeb/mensajeUserList.html', {"mensajesUsers":mensajesUsers, "diccionarioMensajes":diccionarioMensajes})
 
 def mensajeUserDetail(request, pk):
     usertra=User.objects.get(id=pk)
