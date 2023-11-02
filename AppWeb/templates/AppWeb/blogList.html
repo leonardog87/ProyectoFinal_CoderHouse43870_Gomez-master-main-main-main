@@ -25,13 +25,13 @@
             <h5>{{ blog.titulomessage }}</h5>
             <p class="m-0 text-left"> {{ blog.message }}</p>                       
             <br> 
-            <br>                      
             &nbsp;<a class="btn btn-info" href="{% url 'blogDetail' blog.id %}">Ver</a>&nbsp;         
             {% if user.id == blog.user.id %}                         
                 <a class="btn btn-primary" href="{% url 'blogUpdate' blog.id %}">Editar</a>&nbsp; 
                 <a class="btn btn-danger" href="{% url 'blogDelete' blog.id %}">Eliminar</a>          
             {% endif %}   
         </table>
+        <hr>
     {% endfor %}
     {% if user.is_authenticated %}
         <br>
